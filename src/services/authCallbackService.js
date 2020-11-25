@@ -13,9 +13,9 @@ function callback(req, res) {
   axios
     .post(`${config.oauthUrl}/access_token`, body, options)
     .then((res) =>  res.data["access_token"])
-    .then((accessToken) => {
+    .then(async (accessToken) => {
       //console.log("token: "+accessToken);
-      const user =  UserServices.getUserInfo(accessToken);
+      const user =  await UserServices.getUserInfo(accessToken);
       console.log(user);
       res.json({
         data: {

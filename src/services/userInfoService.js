@@ -1,17 +1,18 @@
 const axios = require("axios");
+const { response } = require("express");
 const config = require("../config");
 
-function getUserInfo(token) {
-    axios({
+async function getUserInfo(token) {
+    let response = await axios({
         method: "get",
         url: `${config.apiUrl}/user`,
         headers: {
           Authorization: "token " + token,
         },
-      }).then((response) => {
-        console.log(response.data);
-        return response.data;
-      });
+     })
+     console.log("From user");
+     console.log(response.data);
+     return response.data;
   }
 
 module.exports = {
