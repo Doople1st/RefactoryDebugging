@@ -4,13 +4,16 @@ const config = require("../config");
 function getUserInfo(token) {
     axios({
         method: "get",
-        url: `${config.apiUrl}/users`,
+        url: `${config.apiUrl}/user`,
         headers: {
           Authorization: "token " + token,
         },
       }).then((response) => {
+        console.log(response.data);
         return response.data;
       });
   }
 
-module.export = getUserInfo
+module.exports = {
+  getUserInfo:getUserInfo
+}

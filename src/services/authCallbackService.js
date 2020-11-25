@@ -8,12 +8,15 @@ function callback(req, res) {
     client_secret: config.clientSecret,
     code: req.query.code,
   };
+  console.log(body);
   const options = { headers: { accept: "application/json" } };
   axios
     .post(`${config.oauthUrl}/access_token`, body, options)
-    .then((res) => resp.data["accessToken"])
+    .then((res) =>  res.data["access_token"])
     .then((accessToken) => {
-      const user = UserServices.getUserInfo(accessToken);
+      //console.log("token: "+accessToken);
+      const user =  UserServices.getUserInfo(accessToken);
+      console.log(user);
       res.json({
         data: {
           login: user.login,

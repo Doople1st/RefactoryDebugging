@@ -1,0 +1,7 @@
+Rename env file from "env" to ".env"
+Move set "config" variable after set process.env according to ".env" file with dotenv.config()
+Remove "{" and "}" from "module.exports = { config };
+Change module.export in authService.js to module.exports
+Change module.export in userInfoService.js to module.exports
+assign getUserInfo function as an object's property into module.exports
+resp.data["accessToken"] in authCallbackService.js change to res.data["access_token"]
